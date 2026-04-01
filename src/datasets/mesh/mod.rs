@@ -66,6 +66,10 @@ use crate::Generate;
 #[cfg_attr(feature = "nanoserde", derive(nanoserde::SerBin, nanoserde::DeBin))]
 #[cfg_attr(feature = "wiring", derive(Wiring, Unwiring))]
 #[cfg_attr(feature = "wincode", derive(wincode::SchemaWrite, wincode::SchemaRead))]
+#[cfg_attr(
+    feature = "zerompk",
+    derive(zerompk::ToMessagePack, zerompk::FromMessagePack)
+)]
 pub struct Vector3 {
     #[cfg_attr(feature = "wiring", fixed)]
     #[cfg_attr(feature = "minicbor", n(0))]
@@ -194,6 +198,10 @@ impl From<mesh_protobuf::mesh::Vector3> for Vector3 {
 #[cfg_attr(feature = "nanoserde", derive(nanoserde::SerBin, nanoserde::DeBin))]
 #[cfg_attr(feature = "wiring", derive(Wiring, Unwiring))]
 #[cfg_attr(feature = "wincode", derive(wincode::SchemaWrite, wincode::SchemaRead))]
+#[cfg_attr(
+    feature = "zerompk",
+    derive(zerompk::ToMessagePack, zerompk::FromMessagePack)
+)]
 pub struct Triangle {
     #[cfg_attr(feature = "wiring", fixed)]
     #[cfg_attr(feature = "minicbor", n(0))]
@@ -336,6 +344,10 @@ impl From<mesh_protobuf::mesh::Triangle> for Triangle {
 #[cfg_attr(feature = "nanoserde", derive(nanoserde::SerBin, nanoserde::DeBin))]
 #[cfg_attr(feature = "wiring", derive(Wiring, Unwiring))]
 #[cfg_attr(feature = "wincode", derive(wincode::SchemaWrite, wincode::SchemaRead))]
+#[cfg_attr(
+    feature = "zerompk",
+    derive(zerompk::ToMessagePack, zerompk::FromMessagePack)
+)]
 pub struct Mesh {
     #[cfg_attr(feature = "bilrost", bilrost(encoding(packed)))]
     #[cfg_attr(feature = "minicbor", n(0))]

@@ -74,6 +74,8 @@ pub mod bench_speedy;
 pub mod bench_wincode;
 #[cfg(feature = "wiring")]
 pub mod bench_wiring;
+#[cfg(feature = "zerompk")]
+pub mod bench_zerompk;
 pub mod datasets;
 
 use core::{mem, ops};

@@ -73,7 +73,8 @@ use rust_serialization_benchmark::bench_speedy;
 use rust_serialization_benchmark::bench_wincode;
 #[cfg(feature = "wiring")]
 use rust_serialization_benchmark::bench_wiring;
-
+#[cfg(feature = "zerompk")]
+use rust_serialization_benchmark::bench_zerompk;
 use rust_serialization_benchmark::generate_vec;
 
 fn bench_log(c: &mut Criterion) {
@@ -296,6 +297,9 @@ fn bench_log(c: &mut Criterion) {
 
     #[cfg(feature = "wiring")]
     bench_wiring::bench(BENCH, c, &data);
+
+    #[cfg(feature = "zerompk")]
+    bench_zerompk::bench(BENCH, c, &data);
 }
 
 fn bench_mesh(c: &mut Criterion) {
@@ -500,6 +504,9 @@ fn bench_mesh(c: &mut Criterion) {
 
     #[cfg(feature = "wiring")]
     bench_wiring::bench(BENCH, c, &data);
+
+    #[cfg(feature = "zerompk")]
+    bench_zerompk::bench(BENCH, c, &data);
 }
 
 fn bench_minecraft_savedata(c: &mut Criterion) {
@@ -905,6 +912,9 @@ fn bench_mk48(c: &mut Criterion) {
 
     #[cfg(feature = "wiring")]
     bench_wiring::bench(BENCH, c, &data);
+
+    #[cfg(feature = "zerompk")]
+    bench_zerompk::bench(BENCH, c, &data);
 }
 
 #[cfg(feature = "pprof")]

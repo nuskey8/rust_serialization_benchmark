@@ -75,6 +75,10 @@ use crate::{generate_vec, Generate};
     derive(wincode::SchemaWrite, wincode::SchemaRead),
     wincode(tag_encoding = "u8")
 )]
+#[cfg_attr(
+    feature = "zerompk",
+    derive(zerompk::ToMessagePack, zerompk::FromMessagePack)
+)]
 #[repr(u8)]
 pub enum EntityType {
     #[cfg_attr(feature = "bilrost", bilrost(0))]
@@ -370,6 +374,10 @@ fn generate_velocity(rng: &mut impl Rng) -> i16 {
 #[cfg_attr(feature = "nanoserde", derive(nanoserde::SerBin, nanoserde::DeBin))]
 #[cfg_attr(feature = "wiring", derive(Wiring, Unwiring))]
 #[cfg_attr(feature = "wincode", derive(wincode::SchemaWrite, wincode::SchemaRead))]
+#[cfg_attr(
+    feature = "zerompk",
+    derive(zerompk::ToMessagePack, zerompk::FromMessagePack)
+)]
 pub struct Transform {
     #[cfg_attr(feature = "bilrost", bilrost(encoding(varint)))]
     #[cfg_attr(feature = "wiring", fixed)]
@@ -535,6 +543,10 @@ impl From<rpb::mk48::Transform> for Transform {
 #[cfg_attr(feature = "nanoserde", derive(nanoserde::SerBin, nanoserde::DeBin))]
 #[cfg_attr(feature = "wiring", derive(Wiring, Unwiring))]
 #[cfg_attr(feature = "wincode", derive(wincode::SchemaWrite, wincode::SchemaRead))]
+#[cfg_attr(
+    feature = "zerompk",
+    derive(zerompk::ToMessagePack, zerompk::FromMessagePack)
+)]
 pub struct Guidance {
     #[cfg_attr(feature = "wiring", fixed)]
     #[cfg_attr(feature = "minicbor", n(0))]
@@ -663,6 +675,10 @@ impl From<rpb::mk48::Guidance> for Guidance {
 #[cfg_attr(feature = "nanoserde", derive(nanoserde::SerBin, nanoserde::DeBin))]
 #[cfg_attr(feature = "wiring", derive(Wiring, Unwiring))]
 #[cfg_attr(feature = "wincode", derive(wincode::SchemaWrite, wincode::SchemaRead))]
+#[cfg_attr(
+    feature = "zerompk",
+    derive(zerompk::ToMessagePack, zerompk::FromMessagePack)
+)]
 pub struct Contact {
     #[cfg_attr(feature = "bilrost", bilrost(encoding(varint)))]
     #[cfg_attr(feature = "wiring", fixed(2))]
@@ -929,6 +945,10 @@ impl From<rpb::mk48::Contact> for Contact {
 #[cfg_attr(feature = "nanoserde", derive(nanoserde::SerBin, nanoserde::DeBin))]
 #[cfg_attr(feature = "wiring", derive(Wiring, Unwiring))]
 #[cfg_attr(feature = "wincode", derive(wincode::SchemaWrite, wincode::SchemaRead))]
+#[cfg_attr(
+    feature = "zerompk",
+    derive(zerompk::ToMessagePack, zerompk::FromMessagePack)
+)]
 pub struct TerrainUpdate {
     #[cfg_attr(feature = "bilrost", bilrost(encoding = "(varint, varint)"))]
     #[cfg_attr(feature = "minicbor", n(0))]
@@ -1097,6 +1117,10 @@ impl From<rpb::mk48::TerrainUpdate> for TerrainUpdate {
 #[cfg_attr(feature = "nanoserde", derive(nanoserde::SerBin, nanoserde::DeBin))]
 #[cfg_attr(feature = "wiring", derive(Wiring, Unwiring))]
 #[cfg_attr(feature = "wincode", derive(wincode::SchemaWrite, wincode::SchemaRead))]
+#[cfg_attr(
+    feature = "zerompk",
+    derive(zerompk::ToMessagePack, zerompk::FromMessagePack)
+)]
 pub struct Update {
     #[cfg_attr(feature = "bilrost", bilrost(encoding(packed)))]
     #[cfg_attr(feature = "minicbor", n(0))]
@@ -1277,6 +1301,10 @@ impl From<rpb::mk48::Update> for Update {
 #[cfg_attr(feature = "nanoserde", derive(nanoserde::SerBin, nanoserde::DeBin))]
 #[cfg_attr(feature = "wiring", derive(Wiring, Unwiring))]
 #[cfg_attr(feature = "wincode", derive(wincode::SchemaWrite, wincode::SchemaRead))]
+#[cfg_attr(
+    feature = "zerompk",
+    derive(zerompk::ToMessagePack, zerompk::FromMessagePack)
+)]
 pub struct Updates {
     #[cfg_attr(feature = "bilrost", bilrost(encoding(packed)))]
     #[cfg_attr(feature = "minicbor", n(0))]
