@@ -35,6 +35,7 @@
         "simd-json": "json",
         "msgpacker": "messagepack",
         "rmp-serde": "messagepack",
+        "zerompk": "messagepack",
         "prost": "protobuf",
         "protobuf": "protobuf",
         "parity-scale-codec": "scale"
