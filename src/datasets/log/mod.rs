@@ -290,6 +290,10 @@ pub struct Log {
 #[derive(serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "speedy", derive(speedy::Readable, speedy::Writable))]
 #[cfg_attr(feature = "wincode", derive(wincode::SchemaWrite, wincode::SchemaRead))]
+#[cfg_attr(
+    feature = "zerompk",
+    derive(zerompk::ToMessagePack, zerompk::FromMessagePack)
+)]
 pub struct BorrowLog<'a> {
     #[cfg_attr(feature = "minicbor", n(0))]
     pub address: Address,
@@ -563,6 +567,10 @@ pub struct Logs {
 #[derive(serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "speedy", derive(speedy::Readable, speedy::Writable))]
 #[cfg_attr(feature = "wincode", derive(wincode::SchemaWrite, wincode::SchemaRead))]
+#[cfg_attr(
+    feature = "zerompk",
+    derive(zerompk::ToMessagePack, zerompk::FromMessagePack)
+)]
 pub struct BorrowLogs<'a> {
     #[cfg_attr(feature = "bilrost", bilrost(encoding(packed)))]
     #[cfg_attr(feature = "minicbor", b(0))]
